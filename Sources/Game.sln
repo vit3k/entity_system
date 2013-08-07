@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{63CE5900-3F3D-470D-85CD-148A893DD370}"
+	ProjectSection(ProjectDependencies) = postProject
+		{19328566-D5EC-4FFC-B8D4-ED972F21443D} = {19328566-D5EC-4FFC-B8D4-ED972F21443D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaPlus", "LuaPlus\LuaPlus.vcxproj", "{19328566-D5EC-4FFC-B8D4-ED972F21443D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EntitySystem", "EntitySystem\EntitySystem.vcxproj", "{7AD26E00-75A7-4A6C-ADB6-9244AD0ABE01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63CE5900-3F3D-470D-85CD-148A893DD370}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63CE5900-3F3D-470D-85CD-148A893DD370}.Release|Win32.ActiveCfg = Release|Win32
+		{63CE5900-3F3D-470D-85CD-148A893DD370}.Release|Win32.Build.0 = Release|Win32
+		{19328566-D5EC-4FFC-B8D4-ED972F21443D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{19328566-D5EC-4FFC-B8D4-ED972F21443D}.Release|Win32.ActiveCfg = Release|Win32
+		{19328566-D5EC-4FFC-B8D4-ED972F21443D}.Release|Win32.Build.0 = Release|Win32
+		{7AD26E00-75A7-4A6C-ADB6-9244AD0ABE01}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7AD26E00-75A7-4A6C-ADB6-9244AD0ABE01}.Debug|Win32.Build.0 = Debug|Win32
+		{7AD26E00-75A7-4A6C-ADB6-9244AD0ABE01}.Release|Win32.ActiveCfg = Release|Win32
+		{7AD26E00-75A7-4A6C-ADB6-9244AD0ABE01}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
