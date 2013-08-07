@@ -1,14 +1,14 @@
 #include "Dispatcher.h"
 #include "EntityUpdatedEvent.h"
-#include "Logger.h"
+#include "../Logger.h"
 
 const EventType Event::TYPE = 0;
 const EventType EntityUpdatedEvent::TYPE = 1;
 
-int Dispatcher::activeQueue = 0;
+/*int Dispatcher::activeQueue = 0;
 EventListenersMap Dispatcher::eventListenersMap;
 EventsQueue Dispatcher::eventsQueues[2]; 
-
+*/
 void Dispatcher::Process()
 {
 	Logger::Log("Dispatcher::Process: start");
@@ -41,10 +41,10 @@ void Dispatcher::Process()
 	}
 	Logger::Log("Dispatcher::Process: end");
 }
-/*Dispatcher::Dispatcher()
+Dispatcher::Dispatcher()
 {
 	activeQueue = 0;
-}*/
+}
 bool Dispatcher::Queue(const EventSP& event)
 {
 	EventType et = event->GetType();

@@ -5,11 +5,11 @@
 void Resources::LoadFromFile(const char* fileName,char* buffer,int* size)
 {
 
-	std::string path("C:\\Users\\Pawe³\\Documents\\Visual Studio 2012\\Projects\\Game\\Assets\\");
+	std::string path("d:\\Projekty\\entity_system\\Assets\\");
 	path+=fileName;
 		
 	
-	std::ifstream file (fileName, std::ios::in|std::ios::binary|std::ios::ate);
+	std::ifstream file (path, std::ios::in|std::ios::binary|std::ios::ate);
 	if(file.is_open())
 	{
 		size_t s = file.tellg();

@@ -4,7 +4,7 @@
 class RenderComponent : public Component
 {
 private:
-	
+		
 public:
 	static const int ID;
 	int GetID() { return ID;}

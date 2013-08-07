@@ -1,7 +1,7 @@
 #pragma once
-#include "Entity.h"
-#include "ComponentsBits.h"
-#include "EntityUpdatedEvent.h"
+#include "../Entity.h"
+#include "../Components/ComponentsBits.h"
+#include "../../Events/EntityUpdatedEvent.h"
 
 class World;
 
@@ -22,6 +22,7 @@ public:
 	void OnEntityUpdated(EventSP e);
 	virtual void ProcessEntity(EntitySP entity) {};
 	virtual void BeforeProcess() {};
+	virtual void AfterProcess() {};
 	
 };
 

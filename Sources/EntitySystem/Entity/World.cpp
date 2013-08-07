@@ -1,6 +1,7 @@
 #include "World.h"
-#include "EntityUpdatedEvent.h"
-#include "Logger.h"
+#include "../Events/EntityUpdatedEvent.h"
+#include "../Logger.h"
+#include "../Engine.h"
 
 EntitySP World::Create()
 {
@@ -10,7 +11,7 @@ EntitySP World::Create()
 }
 void World::EntityUpdate(int id)
 {
-	Dispatcher::Queue(EntityUpdatedEventSP(new EntityUpdatedEvent(id)));
+	Engine::Instance().GetDispatcher()->Queue(EntityUpdatedEventSP(new EntityUpdatedEvent(id)));
 }
 SystemSP World::AddSystem(SystemSP system)
 {

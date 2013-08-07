@@ -1,8 +1,8 @@
 #pragma once
 
 #include "System.h"
-#include "TransformComponent.h"
-#include "VelocityComponent.h"
+#include "../Components/TransformComponent.h"
+#include "../Components/VelocityComponent.h"
 
 class MovementSystem : public System
 {

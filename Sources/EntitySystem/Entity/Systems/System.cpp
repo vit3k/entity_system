@@ -1,7 +1,8 @@
 #include "System.h"
-#include "World.h"
-#include "Logger.h"
+#include "../World.h"
+#include "../../Logger.h"
 #include <cstdarg>
+#include "../../Engine.h"
 
 void System::OnEntityUpdated(EventSP e)
 {
@@ -22,7 +23,7 @@ void System::Init(ComponentsBits cBits)
 	componentsBits = cBits;
 	entitiesNum = 0;
 	
-	Dispatcher::AddListener<EntityUpdatedEvent>(EventListenerDelegate(this,&System::OnEntityUpdated));
+	Engine::Instance().GetDispatcher()->AddListener<EntityUpdatedEvent>(EventListenerDelegate(this,&System::OnEntityUpdated));
 }
 System::System(ComponentsBits cBits)
 {
@@ -36,6 +37,7 @@ void System::Process()
 	{
 		ProcessEntity(entities[i]);
 	}
+	AfterProcess();
 }
 
 System::System(int num,...)

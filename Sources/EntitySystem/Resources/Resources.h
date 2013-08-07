@@ -13,9 +13,9 @@ class Resources
 	ResourcesList resources;
 public:
 	template <typename R>
-	R Load(const ResourceId& name,const char* fileName)
+	std::shared_ptr<R> Load(const ResourceId& name,const char* fileName)
 	{
-		char* buffer = NULL;
+		char* buffer = nullptr;
 		int size;
 		LoadFromFile(fileName,buffer,&size);
 		std::shared_ptr<R> r = std::make_shared<R>(buffer,size);

@@ -1,5 +1,5 @@
 #include "MovementSystem.h"
-#include "Logger.h"
+#include "../../Logger.h"
 
 void MovementSystem::ProcessEntity(EntitySP entity)
 {

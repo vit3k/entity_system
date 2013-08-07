@@ -1,8 +1,8 @@
 #pragma once
 
 #include "System.h"
-#include "TransformComponent.h"
-#include "RenderComponent.h"
+#include "../Components/TransformComponent.h"
+#include "../Components/RenderComponent.h"
 #include <SFML\Graphics.hpp>
 
 class RenderSystem : public System
@@ -15,4 +15,5 @@ public:
 	};
 	void ProcessEntity(EntitySP entity);
 	void BeforeProcess();
+	void AfterProcess();
 };

@@ -1,8 +1,8 @@
 #pragma once
 #include <memory>
-#include "Component.h"
+#include "Components/Component.h"
 #include <vector>
-#include "ComponentsBits.h"
+#include "Components/ComponentsBits.h"
 
 class World;
 

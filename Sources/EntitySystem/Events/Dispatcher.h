@@ -12,15 +12,15 @@ typedef std::map<EventType,EventListenersList> EventListenersMap;
 
 class Dispatcher
 {
-	static EventsQueue eventsQueues[2]; 
-	static EventListenersMap eventListenersMap;
-	static int activeQueue;
+	EventsQueue eventsQueues[2]; 
+	EventListenersMap eventListenersMap;
+	int activeQueue;
 public:
-	//Dispatcher();
-	static void Process();
-	static bool Queue(const EventSP& event);
+	Dispatcher();
+	void Process();
+	bool Queue(const EventSP& event);
 	template <typename T>
-	static bool AddListener(const EventListenerDelegate& listener)
+	bool AddListener(const EventListenerDelegate& listener)
 	{
 		EventType eventType = T::TYPE;
 		if(eventListenersMap.find(eventType)==eventListenersMap.end()) 
@@ -38,6 +38,6 @@ public:
 		eventListenersMap[eventType].push_back(listener);
 		return true;
 	}
-	static bool RemoveListener(const EventType& eventType,const EventListenerDelegate& listener);
+	bool RemoveListener(const EventType& eventType,const EventListenerDelegate& listener);
 };
 

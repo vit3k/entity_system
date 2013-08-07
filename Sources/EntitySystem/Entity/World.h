@@ -2,10 +2,10 @@
 //#include "Bag.h"
 #include "Entity.h"
 #include <vector>
-#include "Seq.h"
-#include "System.h"
+#include "../Seq.h"
+#include "Systems/System.h"
 
-#include "Dispatcher.h"
+#include "../Events/Dispatcher.h"
 
 class World
 {

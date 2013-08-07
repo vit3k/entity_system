@@ -1,6 +1,6 @@
 #include "Entity.h"
 #include "World.h"
-#include "ComponentsBits.h"
+#include "Components/ComponentsBits.h"
 #include <cstdarg>
 
 Entity::Entity(World* world,int id)
