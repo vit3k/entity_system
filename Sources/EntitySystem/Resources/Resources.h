@@ -3,8 +3,9 @@
 #include "Resource.h"
 #include <map>
 #include <memory>
+#include <string>
 
-typedef char* ResourceId;
+typedef std::string ResourceId;
 
 typedef std::map<ResourceId,ResourceBaseSP> ResourcesList;
 
@@ -17,12 +18,12 @@ public:
 	{
 		char* buffer = nullptr;
 		int size;
-		LoadFromFile(fileName,buffer,&size);
+		LoadFromFile(fileName,&buffer,&size);
 		std::shared_ptr<R> r = std::make_shared<R>(buffer,size);
 		resources[name] = r;
 		return r;
 	}
-	void LoadFromFile(const char* fileName,char* buffer,int* size);
+	void LoadFromFile(const std::string fileName,char** buffer,int* size);
 	template <typename R>
 	std::shared_ptr<R> Get(const ResourceId& id)
 	{

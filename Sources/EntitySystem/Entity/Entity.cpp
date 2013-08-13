@@ -9,7 +9,7 @@ Entity::Entity(World* world,int id)
 	this->ID = id;
 }
 
-void Entity::Update()
+void Entity::Sync()
 {
 	world->EntityUpdate(ID);
 }
@@ -25,7 +25,7 @@ bool Entity::HasComponents(int num,...)
 
 bool Entity::HasComponents(ComponentsBits cb)
 {
-	for(int i=0;i<cb.size();i++)
+	for(unsigned int i=0;i<cb.size();i++)
 	{
 		if(cb[i] && !componentsBits[i])
 			return false;

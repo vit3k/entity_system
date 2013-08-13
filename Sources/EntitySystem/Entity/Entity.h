@@ -18,7 +18,7 @@ public:
 	void AddComponent(ComponentSP component);
 	bool HasComponents(ComponentsBits cb);
 	bool HasComponents(int num,...);
-	void Update();
+	void Sync();
 	template<typename T>
 	std::shared_ptr<T> GetComponent()
 	{

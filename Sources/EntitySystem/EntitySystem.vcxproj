@@ -69,8 +69,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bag.h" />
+    <ClInclude Include="Clock.h" />
     <ClInclude Include="Entity\Components\Component.h" />
     <ClInclude Include="Entity\Components\ComponentsBits.h" />
+    <ClInclude Include="Entity\EntityFactory.h" />
     <ClInclude Include="Events\Dispatcher.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity\Entity.h" />
@@ -91,8 +93,10 @@
     <ClInclude Include="Entity\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Entity\Components\Components.cpp" />
     <ClCompile Include="Entity\Components\ComponentsBits.cpp" />
+    <ClCompile Include="Entity\EntityFactory.cpp" />
     <ClCompile Include="Events\Dispatcher.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity\Entity.cpp" />

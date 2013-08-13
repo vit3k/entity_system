@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 
-void Resources::LoadFromFile(const char* fileName,char* buffer,int* size)
+void Resources::LoadFromFile(const std::string fileName,char** buffer,int* size)
 {
 
 	std::string path("d:\\Projekty\\entity_system\\Assets\\");
@@ -14,9 +14,12 @@ void Resources::LoadFromFile(const char* fileName,char* buffer,int* size)
 	{
 		size_t s = file.tellg();
 		file.seekg (0, std::ios::beg);
-		buffer = new char[s];
-		file.read (buffer, s);
+		char* tempbuffer = new char[s];
+		*buffer = new char[s];
+		file.read (tempbuffer, s);
 		file.close();
 		*size = s;
+		
+		memcpy(*buffer,tempbuffer,s);
 	}
 }

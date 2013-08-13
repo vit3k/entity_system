@@ -8,12 +8,14 @@
 class RenderSystem : public System
 {
 	sf::RenderWindow* window;
+	sf::Sprite sprites[1000];
 public:
 	RenderSystem(sf::RenderWindow* window) : System(2,TransformComponent::ID,RenderComponent::ID)
 	{
 		this->window = window;
 	};
-	void ProcessEntity(EntitySP entity);
+	void ProcessEntity(EntitySP entity,Time delta);
 	void BeforeProcess();
 	void AfterProcess();
+	void EntityAdded(EntitySP entity);
 };

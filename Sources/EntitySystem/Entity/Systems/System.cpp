@@ -12,6 +12,7 @@ void System::OnEntityUpdated(EventSP e)
 	if(CheckEntity(entity)) {
 		entities[entitiesNum] = entity;
 		entitiesNum++;
+		EntityAdded(entity);
 	}
 }
 bool System::CheckEntity(EntitySP entity)
@@ -30,12 +31,12 @@ System::System(ComponentsBits cBits)
 	Init(cBits);
 }
 
-void System::Process()
+void System::Process(Time delta)
 {
 	BeforeProcess();
 	for(int i = 0; i < entitiesNum; i++)
 	{
-		ProcessEntity(entities[i]);
+		ProcessEntity(entities[i],delta);
 	}
 	AfterProcess();
 }

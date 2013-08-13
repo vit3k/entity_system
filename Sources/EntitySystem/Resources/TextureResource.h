@@ -5,9 +5,9 @@
 class TextureResource : public Resource<sf::Texture>
 {
 public:
-	TextureResource(char* buffer,int size)
+	TextureResource(char* buffer,int size):Resource()
 	{
-		object.loadFromMemory(buffer,size);
+		object->loadFromMemory(buffer,size);
 	}
 };
 

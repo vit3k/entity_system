@@ -20,10 +20,10 @@ SystemSP World::AddSystem(SystemSP system)
 	return system;
 }
 
-void World::Update()
+void World::Update(Time delta)
 {
 	Logger::Log("World::Update start");
 	for(int i = 0;i<=systemSeq.Current();i++)
-		systems[i]->Process();
+		systems[i]->Process(delta);
 	Logger::Log("World::Update end");
 }
