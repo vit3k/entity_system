@@ -3,26 +3,21 @@
 #include "../../Engine.h"
 #include "../../Resources/TextureResource.h"
 
-void RenderSystem::ProcessEntity(EntitySP entity,Time delta)
+void RenderSystem::Process(Time delta)
 {
-	Logger::Log("RenderSystem::ProcessEntity "+std::to_string(entity->ID));
-	TransformComponentSP transform = entity->GetComponent<TransformComponent>();
-	auto test = Engine::Instance().GetResources();
-	//RenderComponentSP render = entity->GetComponent<RenderComponent>();
-	sf::Sprite sprite = sprites[entity->ID];
-	sprite.setPosition(transform->x,transform->y);
-	window->draw(sprite);
-}
-
-void RenderSystem::BeforeProcess()
-{
-	Logger::Log("Render start");
 	window->clear();
-}
+	for(int i = 0; i < entitiesNum; i++)
+	{
+		EntitySP entity = entities[i];
+		TransformComponentSP transform = entity->GetComponent<TransformComponent>();
+		auto test = Engine::Instance().GetResources();
+		sf::Sprite sprite = sprites[entity->ID];
 
-void RenderSystem::AfterProcess()
-{
-	Logger::Log("Render flush");
+		auto position = transform->position;
+		
+		sprite.setPosition(transform->x,transform->y);
+		window->draw(sprite);
+	}
 	window->display();
 }
 

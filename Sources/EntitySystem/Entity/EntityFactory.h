@@ -15,5 +15,6 @@ private:
 	std::shared_ptr<World> world;
 public:
 	EntitySP CreateBlock();
+	EntitySP CreateShip();
 	EntityFactory(std::shared_ptr<World> world);
 };

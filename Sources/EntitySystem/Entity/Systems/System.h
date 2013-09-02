@@ -8,7 +8,7 @@ class World;
 
 class System
 {
-private:
+protected:
 	EntitySP entities[1000];
 	int entitiesNum;
 	bool CheckEntity(EntitySP entity);
@@ -19,7 +19,7 @@ public:
 	System(int num,...);
 	void Init(ComponentsBits cBits);
 	void SetWorld(World* w) {world = w; }
-	void Process(Time delta);
+	virtual void Process(Time delta);
 	void OnEntityUpdated(EventSP e);
 	virtual void ProcessEntity(EntitySP entity,Time delta) {};
 	virtual void BeforeProcess() {};
