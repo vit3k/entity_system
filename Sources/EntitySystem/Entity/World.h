@@ -23,4 +23,5 @@ public:
 	EntitySP Create();
 	void EntityUpdate(int id);
 	void Update(Time delta);
+	void RemoveEntities();
 };

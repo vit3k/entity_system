@@ -12,8 +12,10 @@ private:
 	World* world;
 	ComponentSP components[10];
 	ComponentsBits componentsBits;
+
 public:
 	int ID;
+	bool Removed;
 	Entity(World* world,int id);
 	void AddComponent(ComponentSP component);
 	bool HasComponents(ComponentsBits cb);

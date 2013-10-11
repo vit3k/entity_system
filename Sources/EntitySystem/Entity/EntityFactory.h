@@ -16,5 +16,6 @@ private:
 public:
 	EntitySP CreateBlock();
 	EntitySP CreateShip();
+	EntitySP CreateBullet(float x,float y, float rotation);
 	EntityFactory(std::shared_ptr<World> world);
 };

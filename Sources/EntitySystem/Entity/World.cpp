@@ -27,3 +27,10 @@ void World::Update(Time delta)
 		systems[i]->Process(delta);
 	Logger::Log("World::Update end");
 }
+
+void World::RemoveEntities()
+{
+	Logger::Log("World::RemoveEntities start");
+	
+	Logger::Log("World::RemoveEntities stop");
+}

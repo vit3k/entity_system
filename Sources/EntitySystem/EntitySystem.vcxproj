@@ -47,12 +47,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC ;WIN32_DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Projekty\libs\Box2D_v2.2.1\Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projekty\libs\glm\glm;D:\Projekty\libs\glew-1.10.0\include;D:\Projekty\libs\Box2D_v2.2.1\Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>sfml-window-s-d.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-graphics-s-d.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>D:\Projekty\libs\glew-1.10.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,22 +75,37 @@
     <ClInclude Include="Entity\Components\Component.h" />
     <ClInclude Include="Entity\Components\ComponentsBits.h" />
     <ClInclude Include="Entity\Components\Input.h" />
+    <ClInclude Include="Entity\Components\Mesh.h" />
+    <ClInclude Include="Entity\Components\Player.h" />
     <ClInclude Include="Entity\Components\RigidBody.h" />
+    <ClInclude Include="Entity\Components\Sprite.h" />
     <ClInclude Include="Entity\EntityFactory.h" />
+    <ClInclude Include="Entity\Systems\PlayerControlSystem.h" />
     <ClInclude Include="Events\Dispatcher.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity\Entity.h" />
     <ClInclude Include="Events\EntityUpdatedEvent.h" />
     <ClInclude Include="Events\Event.h" />
     <ClInclude Include="Events\FastDelegate.h" />
+    <ClInclude Include="Events\ThrottleEvent.h" />
+    <ClInclude Include="Graphics\DataType.h" />
+    <ClInclude Include="Graphics\IndexBuffer.h" />
+    <ClInclude Include="Graphics\Renderer.h" />
+    <ClInclude Include="Graphics\Shader.h" />
+    <ClInclude Include="Graphics\Texture.h" />
+    <ClInclude Include="Graphics\VertexBuffer.h" />
+    <ClInclude Include="Graphics\VertexLayout.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Entity\Systems\MovementSystem.h" />
     <ClInclude Include="Entity\Components\RenderComponent.h" />
     <ClInclude Include="Entity\Systems\RenderSystem.h" />
-    <ClInclude Include="Math\Point2.h" />
+    <ClInclude Include="LowLevel\InputController.h" />
+    <ClInclude Include="Math\Utils.h" />
+    <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Resources\Resource.h" />
     <ClInclude Include="Resources\Resources.h" />
     <ClInclude Include="Entity\Systems\System.h" />
+    <ClInclude Include="Resources\ShaderResource.h" />
     <ClInclude Include="Seq.h" />
     <ClInclude Include="Resources\TextureResource.h" />
     <ClInclude Include="Entity\Components\TransformComponent.h" />
@@ -101,12 +117,20 @@
     <ClCompile Include="Entity\Components\Components.cpp" />
     <ClCompile Include="Entity\Components\ComponentsBits.cpp" />
     <ClCompile Include="Entity\EntityFactory.cpp" />
+    <ClCompile Include="Entity\Systems\PlayerControlSystem.cpp" />
     <ClCompile Include="Events\Dispatcher.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Entity\Entity.cpp" />
+    <ClCompile Include="Graphics\Renderer.cpp" />
+    <ClCompile Include="Graphics\Shader.cpp" />
+    <ClCompile Include="Graphics\IndexBuffer.cpp" />
+    <ClCompile Include="Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="Graphics\VertexLayout.cpp" />
+    <ClCompile Include="LowLevel\InputController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Entity\Systems\MovementSystem.cpp" />
     <ClCompile Include="Entity\Systems\RenderSystem.cpp" />
+    <ClCompile Include="Math\Utils.cpp" />
     <ClCompile Include="Resources\Resources.cpp" />
     <ClCompile Include="Entity\Systems\System.cpp" />
     <ClCompile Include="Entity\World.cpp" />

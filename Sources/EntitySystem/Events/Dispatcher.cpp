@@ -1,9 +1,11 @@
 #include "Dispatcher.h"
 #include "EntityUpdatedEvent.h"
 #include "../Logger.h"
+#include "ThrottleEvent.h"
 
 const EventType Event::TYPE = 0;
 const EventType EntityUpdatedEvent::TYPE = 1;
+const EventType ThrottleEvent::TYPE = 2;
 
 /*int Dispatcher::activeQueue = 0;
 EventListenersMap Dispatcher::eventListenersMap;

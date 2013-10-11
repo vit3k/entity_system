@@ -25,6 +25,7 @@ void System::Init(ComponentsBits cBits)
 	entitiesNum = 0;
 	
 	Engine::Instance().GetDispatcher()->AddListener<EntityUpdatedEvent>(EventListenerDelegate(this,&System::OnEntityUpdated));
+	
 }
 System::System(ComponentsBits cBits)
 {

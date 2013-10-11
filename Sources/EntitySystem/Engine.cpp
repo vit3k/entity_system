@@ -9,42 +9,63 @@
 #include <Windows.h>
 #include "Events/Dispatcher.h"
 #include <memory>
-#include <SFML/Graphics.hpp>
+#include <SFML/OpenGL.hpp>
 #include "Resources/TextureResource.h"
+#include "Entity\Systems\PlayerControlSystem.h"
+#include "LowLevel\InputController.h"
 
 #include <random>
 #include "Entity\EntityFactory.h"
+#include "Resources\ShaderResource.h"
 
 void Engine::Init()
 {
+	window.create(sf::VideoMode(800,600),"Title");
+	
 	dispatcher = std::make_shared<Dispatcher>();
 	resources = std::make_shared<Resources>();
 	clock = std::make_shared<Clock>();
-	resources->Load<TextureResource>("block","block.png");
-	resources->Load<TextureResource>("ship","ship.png");
+	
+	resources->Load<ShaderResource>("vertex","vertex.glsl");
+	resources->Load<ShaderResource>("fragment","fragment.glsl");
 
-	window.create(sf::VideoMode(800,600),"Title");
+	inputController = std::make_shared<InputController>(&window);
 
 	world = std::make_shared<World>();
+	world->AddSystem(std::make_shared<PlayerControlSystem>(inputController));
 	world->AddSystem(std::make_shared<MovementSystem>());
-	world->AddSystem(std::make_shared<RenderSystem>(&window));
-	std::shared_ptr<EntityFactory> entityFactory = std::make_shared<EntityFactory>(world);
+	
+	renderSystem = std::make_shared<RenderSystem>(&window);
+	renderSystem->InitGraphics();
+	renderSystem->InitBuffers();
+	world->AddSystem(renderSystem);
+	
+	entityFactory = std::make_shared<EntityFactory>(world);
 
-	entityFactory->CreateShip();
-	/*for(int i = 0;i<100;i++)
-		entityFactory->CreateBlock();*/
+	//entityFactory->CreateShip();
+	
 }
 void Engine::Run()
 {
 	while(window.isOpen()) 
 	{
+		inputController->ProcessInput();
+		dispatcher->Process();
+		world->Update(clock->GetDelta());
+
 		sf::Event event;
 		while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
+			{
                 window.close();
+			}
         }
-		dispatcher->Process();
-		world->Update(clock->GetDelta());
 	}
+
+}
+
+void Engine::Deinit()
+{
+	renderSystem->Deinit();
 }
