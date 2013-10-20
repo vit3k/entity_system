@@ -1,17 +1,24 @@
 #pragma once
 
 #include <glm.hpp>
-#include "VertexLayout.h"
+#include "VertexArray.h"
 #include "Shader.h"
+#include "Texture.h"
+#include "Mesh.h"
 
-class Renderer 
+namespace Graphics
 {
-private:
-	glm::mat4 projectionMatrix;
-	glm::mat4 viewMatrix;
-public:
-	void Init();
-	void DrawVertexLayout(VertexLayout* vertexLayout,Shader* shader,glm::mat4 modelMatrix);
-	void Clear();
-	void SetCameraPosition(glm::vec3 position);
-};
+	class Renderer 
+	{
+	private:
+		glm::mat4 projectionMatrix;
+		glm::mat4 viewMatrix;
+	public:
+		void Init();
+		void DrawVertexArray(VertexArray* vertexLayout,Shader* shader,glm::mat4 modelMatrix);
+		void Clear();
+		void SetCameraPosition(glm::vec3 position);
+		void SetTexture(TextureSP texture);
+		void DrawMesh(Mesh* mesh,glm::mat4 modelMatrix);
+	};
+}

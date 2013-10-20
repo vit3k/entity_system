@@ -8,71 +8,23 @@
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
-
+#include "../../Graphics/DataType.h"
+#include "../../Graphics/Textures.h"
+#include "../../Graphics/Shaders.h"
 
 void RenderSystem::InitBuffers()
-{
-	float colors2[] =
-	{
-		1.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f,
-		0.0f, 1.0f, 1.0f,
-		1.0f, 0.0f, 1.0f,
-		0.5f, 0.5f, 0.0f,
-		0.0f, 0.5f, 0.5f,
-	};
-
-	float vertices[] =
-	{
-		1.0f, -1.0f, -1.0f,
-		1.0f, -1.0f, 1.0f,
-		-1.0f, -1.0f, 1.0f,
-		-1.0f, -1.0f, -1.0f,
-		1.0f, 1.0f, -1.0f,
-		1.0f, 1.0f, 1.0f,
-		-1.0f, 1.0f, 1.0f,
-		-1.0f, 1.0f, -1.0f
-	};
-
-	unsigned int index[] =
-	{
-		0, 1, 2,
-		0, 4, 5,
-		4, 0, 3,
-		1, 0, 5,
-		2, 1, 6,
-		1, 5, 6,
-		5, 4, 6,
-		3, 0, 2,
-		4, 7, 6,
-		2, 6, 7,
-		3, 2, 7,
-		7, 4, 3,
-	};
-
-	VertexBuffer* pointsBuffer = new VertexBuffer(vertices, 8, 3, DataType::Float);
-	VertexBuffer* colorsBuffer = new VertexBuffer(colors2, 8, 3, DataType::Float);
-
-	IndexBuffer* indexBuffer = new IndexBuffer(index, 12);
-
-	vertexLayout = new VertexLayout();
-	vertexLayout->AddVertexBuffer(pointsBuffer,0);
-	vertexLayout->AddVertexBuffer(colorsBuffer,1);
-	vertexLayout->SetIndexBuffer(indexBuffer);
-
-	shader = new Shader("vertex","fragment");
+{	
+	mesh = new Graphics::Mesh();
+		
 	angle = 0;
 	verticalAngle = 0;
-	delete pointsBuffer;
-	delete colorsBuffer;
 }
 void RenderSystem::InitGraphics()
 {
-	renderer = new Renderer();
-	
+	renderer = new Graphics::Renderer();	
 	renderer->Init();
+	Graphics::Textures::LoadFromFile("texture","texture.png");
+	Graphics::Shaders::LoadFromFiles("shader","vertex.glsl","fragment.glsl");
 }
 void RenderSystem::Process(Time delta)
 {
@@ -89,7 +41,8 @@ void RenderSystem::Process(Time delta)
 	renderer->Clear();
 	glm::mat4 modelMatrix = glm::rotate(glm::mat4(1.0f),angle,glm::vec3(0.0f,1.0f,0.0f));
 	modelMatrix = glm::rotate(modelMatrix,verticalAngle,glm::vec3(0.0f,0.0f,1.0f));
-	renderer->DrawVertexLayout(vertexLayout,shader,modelMatrix);
+	
+	renderer->DrawMesh(mesh,modelMatrix);
 
 	window->display();
 }
@@ -105,5 +58,5 @@ void RenderSystem::EntityAdded(EntitySP entity)
 
 void RenderSystem::Deinit()
 {
-	delete vertexLayout;
+	delete mesh;
 }

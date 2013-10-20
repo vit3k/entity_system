@@ -20,6 +20,7 @@ public:
 		int size;
 		LoadFromFile(fileName,&buffer,&size);
 		std::shared_ptr<R> r = std::make_shared<R>(buffer,size);
+		
 		resources[name] = r;
 		return r;
 	}

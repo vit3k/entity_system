@@ -8,7 +8,8 @@ namespace Components
 	private:
 		std::string meshFile;
 		std::string textureFile;
-
+		std::string vertexShader;
+		std::string pixelShader;
 	public:
 		static const int ID;
 		int GetID() { return ID;}

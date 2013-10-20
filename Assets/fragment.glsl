@@ -1,7 +1,10 @@
 #version 400
-in vec3 colour;
+
+in vec2 texture_coordinates;
+uniform sampler2D basic_texture;
 out vec4 frag_colour;
 
 void main () {
-  frag_colour = vec4 (colour, 1.0);
+	vec4 texel = texture (basic_texture, texture_coordinates);
+	frag_colour = texel;
 }

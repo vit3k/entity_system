@@ -17,6 +17,8 @@
 #include <random>
 #include "Entity\EntityFactory.h"
 #include "Resources\ShaderResource.h"
+#include "Graphics/Textures.h"
+#include "Graphics/Shaders.h"
 
 void Engine::Init()
 {
@@ -26,8 +28,9 @@ void Engine::Init()
 	resources = std::make_shared<Resources>();
 	clock = std::make_shared<Clock>();
 	
-	resources->Load<ShaderResource>("vertex","vertex.glsl");
+	/*resources->Load<ShaderResource>("vertex","vertex.glsl");
 	resources->Load<ShaderResource>("fragment","fragment.glsl");
+	resources->Load<TextureResource>("texture","texture.png");*/
 
 	inputController = std::make_shared<InputController>(&window);
 

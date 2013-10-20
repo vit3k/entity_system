@@ -2,8 +2,9 @@
 
 namespace Graphics
 {
-	enum DataType
+	struct Vertex
 	{
-		Float, Int
+		float x,y,z;
+		float s,t;
 	};
 }

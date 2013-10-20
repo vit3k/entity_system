@@ -12,9 +12,8 @@
 class RenderSystem : public System
 {
 	sf::Window* window;
-	Renderer* renderer;
-	VertexLayout* vertexLayout;
-	Shader* shader;
+	Graphics::Renderer* renderer;
+	Graphics::Mesh* mesh;
 	float angle;
 	float verticalAngle;
 public:

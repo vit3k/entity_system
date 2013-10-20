@@ -1,13 +1,14 @@
 #pragma once
 #include "Resource.h"
-#include <SFML/Graphics.hpp>
+#include "../Graphics/Texture.h"
 
-class TextureResource : public Resource<sf::Texture>
+class TextureResource : public Resource<Graphics::Texture>
 {
 public:
 	TextureResource(char* buffer,int size):Resource()
 	{
-		object->loadFromMemory(buffer,size);
+		//object->loadFromMemory(buffer,size);
+		object->LoadFromMemory(buffer,size);
 	}
 };
 
