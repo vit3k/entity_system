@@ -4,7 +4,7 @@ namespace Files
 {
 	bool LoadBinary(std::string fileName,char** buffer,int* size)
 	{
-		std::string path("d:\\Projekty\\entity_system\\Assets\\");
+		std::string path("C:\\Users\\pwitkows\\Source\\Repos\\entity_system\\Assets\\");
 		path+=fileName;
 		
 	
